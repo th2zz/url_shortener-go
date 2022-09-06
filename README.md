@@ -1,10 +1,20 @@
-# url shortener go
-A URL shortener built with React, Go-Fiber. 
-Live demo of the project can be found [here](https://crisp-url.netlify.app).
+# url_shortener-go
+A URL shortener. 
+Frontend: React.js, Material-UI
+Backend: gofiber
 
-## Setup Instructions
+## Quick Start
 
- 1. Docker must be installed to run this application. To install docker visit [here](https://docs.docker.com).
- 2. Clone the repository and open it the terminal. 
- 3. Enter the command `docker-compose up -d` to get it running. 
- 4. The application will visible on http://localhost:3000/
+- To build and run Backend
+  - `docker build -t <tag name> ./api && docker run <tag name>`
+
+- To try out frontend with development server.
+  - `npm install`
+  - `npm start`
+  - checkout http://localhost:3000/
+
+## Reference
+ [Docker Documentation](https://docs.docker.com)
+
+  
+
