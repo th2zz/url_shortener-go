@@ -12,7 +12,13 @@ import (
 	"github.com/th2zz/url_shortener-go/routes"
 )
 
+func healthHandler(c *fiber.Ctx) error {
+	c.Status(fiber.StatusOK).JSON("ok")
+	return nil
+}
+
 func setupRoutes(app *fiber.App) {
+	app.Get("/health", healthHandler)
 	app.Get("/:url", routes.ResolveURL)
 	app.Post("/shorten", routes.ShortenURL)
 }

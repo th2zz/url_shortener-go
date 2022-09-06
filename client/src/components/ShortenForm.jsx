@@ -12,8 +12,9 @@ import { LoadingButton } from "@mui/lab";
 import { Box } from "@mui/system";
 import { useEffect } from "react";
 import Card from "./shared/Card"
+// <domain name>/<alias>
 
-const DEFAULT_SHORT_HELPER = "Shortened URL Example: localhost:3000/<short>";
+const SHORTENER_HELP = "Shortened URL: localhost:3000/<alias>";
 
 function ShortenForm() {
     const initialFormValues = { url: "", short: "", expiry: "1" };
@@ -122,14 +123,14 @@ function ShortenForm() {
                         <TextField
                             name="short"
                             label="Short"
-                            placeholder="Short"
+                            placeholder="Alias"
                             onChange={handleChange}
                             value={formValues.short}
                             error={"short" in formErrors}
                             helperText={
                                 formErrors.short
                                     ? formErrors.short
-                                    : DEFAULT_SHORT_HELPER
+                                    : SHORTENER_HELP
                             }
                             variant="outlined"
                             sx={{ mt: 3 }}
