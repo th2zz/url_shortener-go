@@ -122,7 +122,7 @@ function ShortenForm() {
                         />
                         <TextField
                             name="short"
-                            label="Short"
+                            label="Alias"
                             placeholder="Alias"
                             onChange={handleChange}
                             value={formValues.short}
