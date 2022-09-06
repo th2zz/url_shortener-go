@@ -5,11 +5,11 @@ import (
 	"log"
 	"os"
 
-	"github.com/abdullah1308/URL-Shortener/routes"
-	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/joho/godotenv"
+	"github.com/th2zz/url_shortener-go/routes"
 )
 
 func setupRoutes(app *fiber.App) {
@@ -17,15 +17,15 @@ func setupRoutes(app *fiber.App) {
 	app.Post("/shorten", routes.ShortenURL)
 }
 
-func main(){
+func main() {
 	err := godotenv.Load()
-	
+
 	if err != nil {
 		fmt.Println(err)
 	}
 
 	app := fiber.New()
-	
+
 	app.Use(logger.New())
 	app.Use(cors.New())
 
