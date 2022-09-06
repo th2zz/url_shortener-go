@@ -11,6 +11,7 @@ import {
 import { LoadingButton } from "@mui/lab";
 import { Box } from "@mui/system";
 import { useEffect } from "react";
+import Card from "./shared/Card"
 
 const DEFAULT_SHORT_HELPER = "Shortened URL Example: localhost:3000/<short>";
 
@@ -102,79 +103,82 @@ function ShortenForm() {
     }, [loading, formValues, formErrors, responseValues, initialFormValues]);
 
     return (
-        <Container maxWidth="sm" sx={{ mt: 15 }}>
-            <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-                <FormControl fullWidth>
-                    <TextField
-                        name="url"
-                        label="URL"
-                        placeholder="URL"
-                        onChange={handleChange}
-                        value={formValues.url}
-                        error={"url" in formErrors}
-                        helperText={formErrors.url}
-                        variant="outlined"
-                        required
-                    />
-                    <TextField
-                        name="short"
-                        label="Short"
-                        placeholder="Short"
-                        onChange={handleChange}
-                        value={formValues.short}
-                        error={"short" in formErrors}
-                        helperText={
-                            formErrors.short
-                                ? formErrors.short
-                                : DEFAULT_SHORT_HELPER
-                        }
-                        variant="outlined"
-                        sx={{ mt: 3 }}
-                    />
-                    <TextField
-                        name="expiry"
-                        label="Expiry (in hours)"
-                        type="number"
-                        onChange={handleChange}
-                        value={formValues.expiry}
-                        error={"expiry" in formErrors}
-                        helperText={formErrors.expiry}
-                        variant="outlined"
-                        sx={{ mt: 3 }}
-                        inputProps={{ min: 1 }}
-                        required
-                    />
-                    <Box textAlign="center">
-                        <LoadingButton
-                            type="submit"
-                            loading={loading}
-                            variant="contained"
-                            sx={{
-                                display: "inline-block",
-                                mt: 3,
-                                bgcolor: "#328CC1",
-                            }}
-                        >
-                            Shorten
-                        </LoadingButton>
-                    </Box>
-                </FormControl>
-            </form>
-            <Box textAlign="center" sx={{ mt: 3 }}>
-                <Typography variant="h6" component="p">
-                    {responseValues.title}
-                </Typography>
-                <Link
-                    href={responseValues.short}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    underline="hover"
-                    variant="body1"
-                >
-                    {responseValues.short}
-                </Link>
-            </Box>
-        </Container>
+        <Card>
+
+                <Container maxWidth="sm" sx={{ mt: 15 }}>
+                <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+                    <FormControl fullWidth>
+                        <TextField
+                            name="url"
+                            label="URL"
+                            placeholder="URL"
+                            onChange={handleChange}
+                            value={formValues.url}
+                            error={"url" in formErrors}
+                            helperText={formErrors.url}
+                            variant="outlined"
+                            required
+                        />
+                        <TextField
+                            name="short"
+                            label="Short"
+                            placeholder="Short"
+                            onChange={handleChange}
+                            value={formValues.short}
+                            error={"short" in formErrors}
+                            helperText={
+                                formErrors.short
+                                    ? formErrors.short
+                                    : DEFAULT_SHORT_HELPER
+                            }
+                            variant="outlined"
+                            sx={{ mt: 3 }}
+                        />
+                        <TextField
+                            name="expiry"
+                            label="Expiry (in hours)"
+                            type="number"
+                            onChange={handleChange}
+                            value={formValues.expiry}
+                            error={"expiry" in formErrors}
+                            helperText={formErrors.expiry}
+                            variant="outlined"
+                            sx={{ mt: 3 }}
+                            inputProps={{ min: 1 }}
+                            required
+                        />
+                        <Box textAlign="center">
+                            <LoadingButton
+                                type="submit"
+                                loading={loading}
+                                variant="contained"
+                                sx={{
+                                    display: "inline-block",
+                                    mt: 3,
+                                    bgcolor: "#328CC1",
+                                }}
+                            >
+                                Shorten
+                            </LoadingButton>
+                        </Box>
+                    </FormControl>
+                </form>
+                <Box textAlign="center" sx={{ mt: 3 }}>
+                    <Typography variant="h6" component="p">
+                        {responseValues.title}
+                    </Typography>
+                    <Link
+                        href={responseValues.short}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        underline="hover"
+                        variant="body1"
+                    >
+                        {responseValues.short}
+                    </Link>
+                </Box>
+            </Container>
+        </Card>
     );
 }
 
