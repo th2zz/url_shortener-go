@@ -18,7 +18,7 @@ const footerStyle = {
 function Footer() {
   return (
     <footer style={footerStyle}>
-      <Typography variant="body1" component="p" sx={{color: "#FFF", border: 0}}>&#169; 2022 Built by Abdullah Rafi</Typography>
+      <Typography variant="body1" component="p" sx={{color: "#FFF", border: 0}}>&#169; 2022 th2zz</Typography>
     </footer>
   )
 }
